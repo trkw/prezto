@@ -10,6 +10,11 @@ if [[ "$SHLVL" -eq 1 && ! -o LOGIN && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprofile"
 fi
 
+# Homebrew
+if [ -f $(brew --prefix)/etc/brew-wrap ];then
+  source $(brew --prefix)/etc/brew-wrap
+fi
+
 # anyenv
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
